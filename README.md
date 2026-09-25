@@ -23,7 +23,7 @@ Este documento:
   
   - proporciona las rúbricas necesarias para la autoevaluación
   
-  - proporciona indicación y sugerencias para validar el trabajo realizado
+  - proporciona indicaciones y sugerencias para validar el trabajo realizado
 
 
 > :warning: ¡Importantísimo! Si no te familiarizas con el contenido
@@ -51,7 +51,7 @@ La descripción de cada role y sus requisitos de asignación se
 encuentran en el fichero [roles.md](roles.md).
 
 Una vez asignados los roles de cada miembro del equipo, debéis cubrir
-el fichero [AUTHORS](AUHTORS) siguiendo el formato de ejemplo del
+el fichero [AUTHORS](AUTHORS) siguiendo el formato de ejemplo del
 propio fichero.
 
 
@@ -733,32 +733,31 @@ realizar más pruebas.
       ejecutó el intento de conexión en el hilo principal).
 	  
 
-  -  __🔴 Prueba 1.5: El test de la caida del servidor o la red__
+  - __🔴 Prueba 1.5: El test de la caida del servidor o la red__
 
-    * **Objetivo:** Verificar que la aplicación gestiona correctamente
-      las excepciones de red asíncronas y no colapsa (*crash*) si el
-      endpoint dejar de estar disponible.
+   * **Objetivo:** Verificar que la aplicación gestiona correctamente
+     las excepciones de red asíncronas y no colapsa (*crash*) si el
+     endpoint dejar de estar disponible.
 
-    * **Procedimiento:**
-      1. Asegurarse de que el servidor simulado **está
-         operativo**.
-      2. Iniciar la aplicación.
-      3. Iniciar varias descargas.
-      4. Apagar abruptamente el servidor.
+   * **Procedimiento:**
+     1. Asegurarse de que el servidor simulado **está operativo**.
+     2. Iniciar la aplicación.
+     3. Iniciar varias descargas.
+     4. Apagar abruptamente el servidor.
   
-    * **Resultado esperado (Apto):** Tras un breve instante (timeout
-      de la conexión), el estado de la descarga cambia automáticamente
-      a **"Error"** (o su traducción correspondiente según el idioma
-      activo) y el botón de cancelar sigue habilitado. La interfaz
-      gráfica sigue respondiendo perfectamente, permitiendo al usuario
-      intentar añadir más descargas, cancelar las actuales, o
-      finalizar la aplicación.
+   * **Resultado esperado (Apto):** Tras un breve instante (timeout de
+     la conexión), el estado de la descarga cambia automáticamente a
+     **"Error"** (o su traducción correspondiente según el idioma
+     activo) y el botón de cancelar sigue habilitado. La interfaz
+     gráfica sigue respondiendo perfectamente, permitiendo al usuario
+     intentar añadir más descargas, cancelar las actuales, o finalizar
+     la aplicación.
 
-    * **Fallo crítico (Penalización severa):** La aplicación se cierra
-      inesperadamente arrojando una excepción, o la ventana se queda
-      congelada indefinidamente esperando recibir datos de la conexión
-      (debido probablemente a que se ejecutó el intento de conexión en
-      el hilo principal).
+   * **Fallo crítico (Penalización severa):** La aplicación se cierra
+     inesperadamente arrojando una excepción, o la ventana se queda
+     congelada indefinidamente esperando recibir datos de la conexión
+     (debido probablemente a que se ejecutó el intento de conexión en
+     el hilo principal).
 
 
 ## Bloque 2: Pruebas de Arquitectura y Separación de Capas (30% de la nota)
@@ -815,7 +814,7 @@ realizar más pruebas.
       (hardcoded).
 	  
 
-  _ __🔴 Prueba 3.2: El test de la "Palabra Larga" (Diseño Elástico)__
+  - __🔴 Prueba 3.2: El test de la "Palabra Larga" (Diseño Elástico)__
 
     * **Objetivo:** Comprobar que el diseño de la interfaz se adapta
       al tamaño dinámico de los textos traducidos.
