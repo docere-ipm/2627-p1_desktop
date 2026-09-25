@@ -735,29 +735,29 @@ realizar más pruebas.
 
   - __🔴 Prueba 1.5: El test de la caida del servidor o la red__
 
-   * **Objetivo:** Verificar que la aplicación gestiona correctamente
-     las excepciones de red asíncronas y no colapsa (*crash*) si el
-     endpoint dejar de estar disponible.
+    * **Objetivo:** Verificar que la aplicación gestiona correctamente
+      las excepciones de red asíncronas y no colapsa (*crash*) si el
+      endpoint dejar de estar disponible.
 
-   * **Procedimiento:**
-     1. Asegurarse de que el servidor simulado **está operativo**.
-     2. Iniciar la aplicación.
-     3. Iniciar varias descargas.
-     4. Apagar abruptamente el servidor.
+    * **Procedimiento:**
+      1. Asegurarse de que el servidor simulado **está operativo**.
+      2. Iniciar la aplicación.
+      3. Iniciar varias descargas.
+      4. Apagar abruptamente el servidor.
   
-   * **Resultado esperado (Apto):** Tras un breve instante (timeout de
-     la conexión), el estado de la descarga cambia automáticamente a
-     **"Error"** (o su traducción correspondiente según el idioma
-     activo) y el botón de cancelar sigue habilitado. La interfaz
-     gráfica sigue respondiendo perfectamente, permitiendo al usuario
-     intentar añadir más descargas, cancelar las actuales, o finalizar
-     la aplicación.
+    * **Resultado esperado (Apto):** Tras un breve instante (timeout de
+      la conexión), el estado de la descarga cambia automáticamente a
+      **"Error"** (o su traducción correspondiente según el idioma
+      activo) y el botón de cancelar sigue habilitado. La interfaz
+      gráfica sigue respondiendo perfectamente, permitiendo al usuario
+      intentar añadir más descargas, cancelar las actuales, o finalizar
+      la aplicación.
 
-   * **Fallo crítico (Penalización severa):** La aplicación se cierra
-     inesperadamente arrojando una excepción, o la ventana se queda
-     congelada indefinidamente esperando recibir datos de la conexión
-     (debido probablemente a que se ejecutó el intento de conexión en
-     el hilo principal).
+    * **Fallo crítico (Penalización severa):** La aplicación se cierra
+      inesperadamente arrojando una excepción, o la ventana se queda
+      congelada indefinidamente esperando recibir datos de la conexión
+      (debido probablemente a que se ejecutó el intento de conexión en
+      el hilo principal).
 
 
 ## Bloque 2: Pruebas de Arquitectura y Separación de Capas (30% de la nota)
