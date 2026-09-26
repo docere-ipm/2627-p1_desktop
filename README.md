@@ -155,14 +155,17 @@ De cada a la evaluación continua, la práctica se divide en tres tareas.
   
     * Hito 1: Arquitectura Base y Diseño de la Interfaz.
 	
+	  💡 El diseño que realizaste en la práctica individual es un buen
+      punto de partida.
+	
     * Hito 2: Desarrollo de la Arquitectura y Lógica dirigida por eventos.
 	
 	
-	**Nota:** En este hito, durante las descargas de archivos grandes
-    es posible que la interfaz **se congele**.  Esto no se considera
-    un fallo hasta la siguiente etapa. Puedes aprovechar esta
-    circustancia para experimentar el problema real en tu propio
-    código antes de resolverlo en el siguiente hito.
+	  **Nota:** En este hito, durante las descargas de archivos
+      grandes es posible que la interfaz **se congele**.  Esto no se
+      considera un fallo hasta la siguiente etapa. Puedes aprovechar
+      esta circustancia para experimentar el problema real en tu
+      propio código antes de resolverlo en el siguiente hito.
 
   - __Tarea 2__
   
@@ -197,6 +200,9 @@ De cada a la evaluación continua, la práctica se divide en tres tareas.
    En general, cualquier herramienta que implique el uso de la clase
    `GTk.Builder` en tiempo de ejecución.
 
+6. Usar el servidor que está disponible en este repositorio:
+   https://github.com/nbarreira/FakeFileServer
+   
 
 ## Requisitos Funcionales (RF)
 
@@ -204,8 +210,9 @@ La interfaz de la aplicación deberá contar con los siguientes componentes:
 
 - __RF-1:__ Adición.
 
-  Un formulario con un campo de texto para introducir la URL/Nombre
-  del archivo y un botón para "Descargar".
+  Un componente que permita a la usuaria indicar un fichero de
+  texto. El fichero de texto contiene una lista de URLs que se
+  comenzarán a descargar automáticamente.
 
 - __RF-2:__ Lista de Descargas.
 
