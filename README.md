@@ -230,7 +230,7 @@ La interfaz de la aplicación deberá contar con los siguientes componentes:
     mostrará: tamaño del archivo, velocidad de descarga, fecha y hora
     de finalización de la descarga.
   
-  * Botón individual de __Cancelar / Detener / Pausar__.
+  * Botón individual de __Cancelar / Pausar__.
   
   
 - __RF-4:__ Estadísticas Generales.
@@ -518,6 +518,15 @@ provocando que se realizen desarrollos de calidad sub-estándar.
 
 # 📊 Rúbrica detallada de evaluación
 
+A continuación se detallan rúbricas para cada uno de los hitos del
+desarrollo. A modo orientativo cada categoría tiene asociado un rango
+de porcentajes sobre la nota máxima que se puede obtener en el apartado
+correspondiente:
+
+  - Excelente (80% -- 100%).
+  - Aceptable (50% -- 80%).
+  - Insuficiente (0% -- 40%).
+  
 
 ## ⚠️ Pauta de conversión para la nota final ⚠️
 
@@ -529,56 +538,57 @@ ingeniería informática.
 
 
 
-## 📌 Hito 1: Arquitectura Base y Diseño de la Interfaz (Peso: 15% / Máx: 1.5 pts)
+## 📌 Hito 1: Arquitectura Base y Diseño de la Interfaz
 
-  - **Excelente (1.3 \- 1.5 pts):** La interfaz está completamente
-    descrita. El modelo está encapsulado en clases de Python puras sin
-    ninguna importación de gi.repository.Gtk o los módulos de la
-    vista. Existen pruebas unitarias o de consola que demuestran que
-    el modelo funciona de forma aislada.
+  - **Excelente:** La interfaz está completamente descrita. El modelo
+    está encapsulado en clases de Python puras sin ninguna importación
+    de gi.repository.Gtk o los módulos de la vista. Existen pruebas
+    unitarias o de consola que demuestran que el modelo funciona de
+    forma aislada.
 
-  - **Aceptable (0.8 \- 1.2 pts):** El modelo y la vista están
-    separados, pero el modelo contiene variables globales innecesarias
-    que dificultan su aislamiento.
+  - **Aceptable:** El modelo y la vista están separados, pero el
+    modelo contiene variables globales innecesarias que dificultan su
+    aislamiento.
 
-  - **Insuficiente (0.0 \- 0.7 pts):** El modelo realiza importaciones
-    de componentes de GTK o de los módulos de la vista, o la interfaz
-    no se despliega en absoluto.
+  - **Insuficiente:** El modelo realiza importaciones de componentes
+    de GTK o de los módulos de la vista, o la interfaz no se despliega
+    en absoluto.
 
-  - __⚠️ Penalización Directa (-0.5 pts):__ Uso de herencia innecesaria
+  - __⚠️ Penalización Directa (-33%):__ Uso de herencia innecesaria
     (ej. crear subclases de Gtk.Button solo para cambiarles el texto).
 	
 
-## 📌 Hito 2: Lógica Dirigida por Eventos (Peso: 20% / Máx: 2.0 pts)
+## 📌 Hito 2: Lógica Dirigida por Eventos
 
-  - **Excelente (1.7 \- 2.0 pts):** Los controladores capturan los
-    eventos, y usan los objetos del modelo. No hay lógica de negocio
-    dentro de las funciones *callback* de las señales de GTK.
+  - **Excelente:** Los controladores capturan los eventos, y usan los
+    objetos del modelo. No hay lógica de negocio dentro de las
+    funciones *callback* de las señales de GTK.
   
-  - **Aceptable (1.0 \- 1.6 pts):** La comunicación funciona, pero los
-    componentes visuales almacenan el estado de la aplicación (ej. se
-    consulta el progreso leyendo el string de un Gtk.Label en lugar de
-    preguntar al objeto del modelo).
+  - **Aceptable:** La comunicación funciona, pero los componentes
+    visuales almacenan el estado de la aplicación (ej. se consulta el
+    progreso leyendo el string de un Gtk.Label en lugar de preguntar
+    al objeto del modelo).
   
-  - **Insuficiente (0.0 \- 0.9 pts):** El "síndrome del botón
-    inteligente": la lógica del modelo está escrita de forma
-    procedimental dentro del manejador del botón de la interfaz.
+  - **Insuficiente:** El "síndrome del botón inteligente": la lógica
+    del modelo está escrita de forma procedimental dentro del
+    manejador del botón de la interfaz.
 
-## 📌 Hito 3: Concurrencia y Sincronización con el Main Loop (Peso: 35% / Máx: 3.5 pts)
 
-  - **Excelente (3.0 \- 3.5 pts):** Pasa limpiamente el test de estrés
-    (ventana móvil en círculos sin congelación). Las descargas no
-    corren en el thread principal. Las modificaciones visuales se
-    delegan de forma estricta al hilo principal mediante
-    `GLib.idle_add()`. El botón de cancelar responde al instante y los
-    hilos mueren limpiamente al cerrar la ventana.
+## 📌 Hito 3: Concurrencia y Sincronización con el Main Loop
+
+  - **Excelente:** Pasa limpiamente el test de estrés (ventana móvil
+    en círculos sin congelación). Las descargas no corren en el thread
+    principal. Las modificaciones visuales se delegan de forma
+    estricta al hilo principal mediante `GLib.idle_add()`. El botón de
+    cancelar responde al instante y los hilos mueren limpiamente al
+    cerrar la ventana.
   
-  - **Aceptable (1.8 \- 2.9 pts):** La interfaz no se congela, pero se
-    aprecian parpadeos visuales o micro-bloqueos debido a que el hilo
+  - **Aceptable:** La interfaz no se congela, pero se aprecian
+    parpadeos visuales o micro-bloqueos debido a que el hilo
     secundario pasa bloques de código demasiado grandes a
     `GLib.idle_add()`, saturando el *Main Loop*.
   
-  - **Fallo Crítico (0.0 pts en este bloque):** Se produce cualquiera
+  - **Fallo Crítico (0 pts. en este bloque):** Se produce cualquiera
     de las siguientes situaciones:
   
     * El sistema muestra el mensaje "No responde" o la interfaz se
@@ -591,41 +601,42 @@ ingeniería informática.
     * Al cerrar la ventana, el proceso de Python sigue activo (hilos
       zombi).
 
-  - **Robustez ante fallos de red (+0.5 pts):** El código captura de
+  - **Robustez ante fallos de red (+15%):** El código captura de
     forma limpia las excepciones de red en el Modelo y la usuaria
     recibe el _feedback_ adecuado.
   
 
-  - **Falta de control de excepciones (Penalización de \-0.5 pts):**
+  - **Falta de control de excepciones (Penalización de -0.15%):**
     El programa aborta su ejecución ante una excepción de red o de
     otro tipo.
 
-## 📌 Hito 4: Internacionalización (i18n) y Localización (l10n) (Peso: 20% / Máx: 2.0 pts)
 
-  - **Excelente (1.7 \- 2.0 pts):** El 100% de los strings visibles
-    (incluyendo diálogos de error, la barra de estado, etc.) se traducen
-    "al vuelo" usando GNU gettext y la convención \_(). El módulo
-    locale adapta dinámicamente los separadores decimales/millares y
-    el formato de fecha exacto de la región. El diseño es elástico y
-    los textos largos no se cortan.
+## 📌 Hito 4: Internacionalización (i18n) y Localización (l10n)
+
+  - **Excelente:** El 100% de los strings visibles (incluyendo
+    diálogos de error, la barra de estado, etc.) se traducen "al
+    vuelo" usando GNU gettext y la convención \_(). El módulo locale
+    adapta dinámicamente los separadores decimales/millares y el
+    formato de fecha exacto de la región. El diseño es elástico y los
+    textos largos no se cortan.
   
-  - **Aceptable (1.0 \- 1.6 pts):** Las traducciones de los botones
-    principales funcionan, pero los mensajes de error o los títulos de
-    las ventanas siguen *hardcodeados* en el idioma original. Los
-    números se muestran como strings crudos sin formato regional.
+  - **Aceptable:** Las traducciones de los botones principales
+    funcionan, pero los mensajes de error o los títulos de las
+    ventanas siguen *hardcodeados* en el idioma original. Los números
+    se muestran como strings crudos sin formato regional.
   
-  - **Insuficiente (0.0 \- 0.9 pts):** El estudiante usó condicionales
-    if idioma \== "en": manuales en el código para cambiar los textos
-    o concatenó las fechas de forma rígida (dia \+ "/" \+ mes).
+  - **Insuficiente:** El estudiante usó condicionales if idioma \==
+    "en": manuales en el código para cambiar los textos o concatenó
+    las fechas de forma rígida (dia \+ "/" \+ mes).
 
 
-## 📑 Memoria Técnica y Buenas Prácticas (Peso: 10% / Máx: 1.0 pt)**
+## 📑 Memoria Técnica y Buenas Prácticas
 
-  - **Evaluación (0.0 \- 1.0 pt):** Justificación clara del patrón
-    arquitectónico mediante un diagrama de clases simplificado. Estilo
-    de código conforme a las directrices de **PEP 8**. El repositorio
-    está limpio de archivos temporales de compilación (ej. exclusión
-    correcta de carpetas \_\_pycache\_\_ o archivos .po sin compilar
+  - **Evaluación:** Justificación clara del patrón arquitectónico
+    mediante un diagrama de clases simplificado. Estilo de código
+    conforme a las directrices de **PEP 8**. El repositorio está
+    limpio de archivos temporales de compilación (ej. exclusión
+    correcta de carpetas `__pycache__` o archivos .po sin compilar
     mediante un .gitignore adecuado).
   
 
@@ -643,7 +654,7 @@ validar la calidad de la aplicación. Es posible y recomendable
 realizar más pruebas.
 
 
-## Bloque 1: Pruebas de Concurrencia y Reactividad (30% de la nota)
+## Bloque 1: Pruebas de Concurrencia y Reactividad
 
   - __🔴 Prueba 1.1: El test del estrés y ventana congelada (The Frozen UI Test)__
 
@@ -767,7 +778,7 @@ realizar más pruebas.
       el hilo principal).
 
 
-## Bloque 2: Pruebas de Arquitectura y Separación de Capas (30% de la nota)
+## Bloque 2: Pruebas de Arquitectura y Separación de Capas
 
   - __🔴 Prueba 2.1: El test del "Modo Texto" (Desacoplamiento)__
 
@@ -794,7 +805,7 @@ realizar más pruebas.
       interfaz para poder escribir el progreso de la descarga.
 	  
 
-## Bloque 3: Pruebas de Internacionalización y Diseño Elástico (20% de la nota)
+## Bloque 3: Pruebas de Internacionalización y Diseño Elástico
 
   - __🔴 Prueba 3.1: El test del "Idioma Klingon / Fantasía"__
 
