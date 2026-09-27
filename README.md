@@ -64,9 +64,9 @@ En esta práctica el aspecto clave de la aplicación es la interfaz
 gráfica de usuaria en un entorno de escritorio.
 
 _IPMDownloader_ es una aplicación de escritorio que permite gestionar
-la simulación o descarga real desde un servidor de múltiples archivos
-de manera simultánea, garantizando una experiencia de usuario fluida y
-sin bloqueos.
+la descarga desde un servidor de múltiples archivos de manera
+simultánea, garantizando una experiencia de usuario fluida y sin
+bloqueos.
 
 
 # Objetivos de aprendizaje
@@ -233,7 +233,7 @@ La interfaz de la aplicación deberá contar con los siguientes componentes:
   * Botón individual de __Cancelar / Pausar__.
   
   
-- __RF-4:__ Estadísticas Generales.
+- __RF-3:__ Estadísticas Generales.
 
    Muestra el número total de descargas activas y completadas.
 
@@ -741,8 +741,7 @@ realizar más pruebas.
       la lista normalmente, pero tras un breve instante (intento de
       conexión), el estado de la descarga cambia automáticamente a
       **"Error"** (o su traducción correspondiente según el idioma
-      activo) y el botón de cancelar se deshabilita. La interfaz
-      gráfica sigue respondiendo perfectamente.
+      activo). La interfaz gráfica sigue respondiendo perfectamente.
 	
     * **Fallo crítico (Penalización severa):** La aplicación se cierra
       inesperadamente arrojando una excepción, o la ventana se queda
@@ -1056,6 +1055,22 @@ _Tip 💡:_ Si has programado algo como `if (idioma \== "en")` para
 cambiar el formato de los datos, no es correcto.
 apartado.
 
+💡: _gettext_ espera una estructura exacta de directorios y falla
+silenciosamente cuando no la encuentra. A continuación se muestra un
+ejemplo de dicha estructura dentro de un directorio `locale`:
+
+
+```
+proyecto/
+├── locale/
+│   ├── es/
+│   │   └── LC_MESSAGES/
+│   │       └── downloader.mo
+│   └── en/
+│       └── LC_MESSAGES/
+│           └── downloader.mo
+└── main.py
+```
 
 
 ## 💡 Entorno de corrección
@@ -1093,3 +1108,7 @@ uso de sistemas de inteligencia artificial en la actividad académica
 en el siguiente enlace:
 
 https://www.udc.gal/export/sites/udc/goberno/_galeria_down/secretaria/documentos/informacionpublica/Normativa_UDC_usos_academicos_IA.pdf_2063069294.pdf
+
+También disponible:
+
+https://www.udc.gal/es/goberno/equipo_reitoral/secretaria/informacion-publica/
