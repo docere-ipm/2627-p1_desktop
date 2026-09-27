@@ -1085,3 +1085,12 @@ $ msgfmt locale/en/LC\_MESSAGES/downloader.po \-o locale/en/LC\_MESSAGES/downloa
 	- Ejecutar la aplicación sin lanzar el servidor.
 
 
+---
+
+# Uso de sistemas de inteligencia artificial
+
+Se puede consultar la normativa de la Universidade da Coruña sobre el
+uso de sistemas de inteligencia artificial en la actividad académica
+en el siguiente enlace:
+
+https://www.udc.gal/export/sites/udc/goberno/_galeria_down/secretaria/documentos/informacionpublica/Normativa_UDC_usos_academicos_IA.pdf_2063069294.pdf
