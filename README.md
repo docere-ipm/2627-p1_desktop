@@ -19,7 +19,7 @@ Este documento:
   
   - establece los roles a desempeñar por parte de los miembros del equipo
   
-  - describe los resultados (entragables) de la práctica
+  - describe los resultados (entregas) de la práctica
   
   - proporciona las rúbricas necesarias para la autoevaluación
   
@@ -33,7 +33,7 @@ Este documento:
 
 
 > ⚠️ Evaluación ⚠️ Este documento incluye atributos de calidad, rúbricas
-> y una lista de los errores más comunes. Usalos para autoevaluar tu
+> y una lista de los errores más comunes. Úsalos para auto-evaluar tu
 > trabajo y corregir las deficiencias antes de la revisión del
 > profesor. La valoración de tu trabajo será pobre si presenta alguna
 > de las deficiencias que ya están descritas en este documento.
@@ -148,7 +148,7 @@ utilidad de los hilos de ejecución.
 
 ## División en tareas
 
-De cada a la evaluación continua, la práctica se divide en tres tareas.
+De cara a la evaluación continua, la práctica se divide en tres tareas.
 
 
   - __Tarea 1__
@@ -164,7 +164,7 @@ De cada a la evaluación continua, la práctica se divide en tres tareas.
 	  **Nota:** En este hito, durante las descargas de archivos
       grandes es posible que la interfaz **se congele**.  Esto no se
       considera un fallo hasta la siguiente etapa. Puedes aprovechar
-      esta circustancia para experimentar el problema real en tu
+      esta circunstancia para experimentar el problema real en tu
       propio código antes de resolverlo en el siguiente hito.
 
   - __Tarea 2__
@@ -185,13 +185,13 @@ De cada a la evaluación continua, la práctica se divide en tres tareas.
   
    Se debe usar una [versión de
    python](https://devguide.python.org/versions/) que no vaya a
-   alcanzar el _fin de vida_ (_end-of-life_) antes de que finalize el
+   alcanzar el _fin de vida_ (_end-of-life_) antes de que finalice el
    curso.
    
 2. Las librerías a emplear son: la librería estándar de python, GTK4
    y, opcionalmente, adwaita.
    
-3. El control de versiones ser realiza con _git_.
+3. El control de versiones se realiza con _git_.
 
 4. Se guardará una copia completa del repositorio en _github_. Los
    docentes tendrán acceso a dicho repositorio.
@@ -216,7 +216,7 @@ La interfaz de la aplicación deberá contar con los siguientes componentes:
 
 - __RF-2:__ Lista de Descargas.
 
-  Una sección princial que muestre de forma dinámica cada descarga
+  Una sección principal que muestre de forma dinámica cada descarga
   añadida. Por cada una debe mostrar:
   
   * Nombre del archivo / URL.
@@ -403,7 +403,7 @@ contener:
 
 ## Errores típicos
 
-A continuación se detallan algunos errores típicos que se comenten de
+A continuación se detallan algunos errores típicos que se cometen de
 forma recurrente divididos por los objetivos de la práctica:
 
 
@@ -428,14 +428,14 @@ El síndrome del _"Botón Inteligente"_ es el error rey en este nivel.
 
 2. __Errores en Concurrencia (Bloqueo y Sincronización)__
 
-La gestión de hilos en entornos de interfaz gráfica combianda con la
+La gestión de hilos en entornos de interfaz gráfica combinada con la
 programación dirigida por eventos plantea un esquema distinto al de la
-programación sencuencial.
+programación secuencial.
 
 - __Congelar la interfaz (The Frozen UI):__ Ejecutan la tarea pesada
   (el bucle de la descarga o el filtro de imagen) en el mismo hilo de
   la interfaz (EDT \- *Event Dispatch Thread*). La ventana no responde
-  y el entorno de escritorio termina por mostar el mensaje de "La
+  y el entorno de escritorio termina por mostrar el mensaje de "La
   aplicación no responde".
   
   _Warning:_ Es habitual que este problema se deba a una programación
@@ -474,7 +474,7 @@ procedural.
   paneles, layouts, lógica de negocio y variables globales. No se
   modulariza la interfaz en componentes.
   
-  _Nota:_ Este es el antipatrón que se conoce como _Blob_ o _Clase
+  _Nota:_ Este es el anti-patrón que se conoce como _Blob_ o _Clase
   Dios_.
 
 
@@ -492,7 +492,7 @@ procedural.
 4. __Errores en Internacionalización (i18n)__
 
 La internacionalización no suele recibir la atención que merece,
-provocando que se realizen desarrollos de calidad sub-estándar.
+provocando que se realicen desarrollos de calidad sub-estándar.
 
 
 - __Textos "Hardcodeados" mixtos:__ Se traducen los botones
@@ -510,8 +510,8 @@ provocando que se realizen desarrollos de calidad sub-estándar.
 
 - __Corte de texto en la interfaz (Layouts rígidos):__ El diseño y/o
   la implementación de la interfaz son rígidos y no se adaptan a las
-  distintas longuitudes del texto. La interfaz debe adaptarse ya que
-  los textos que contiene varían en longuitud según el idioma de los
+  distintas longitudes del texto. La interfaz debe adaptarse ya que
+  los textos que contiene varían en longitud según el idioma de los
   mismos. Por ejemplo, tomando únicamente idiomas occidentales:
   español "Salir", inglés ("Exit") o alemán ("Ausloggen").
 
@@ -646,7 +646,6 @@ ingeniería informática.
 
 A continuación se describe una batería de _pruebas técnicas y
 funcionales_ que ayuda a validar la ausencia de los errores descritos.
-Cada pruebas está asociada a una puntuación o penalización directa.
 
 
 _Warning:_ Esta batería supone un mínimo de pruebas a realizar para
@@ -751,11 +750,11 @@ realizar más pruebas.
       ejecutó el intento de conexión en el hilo principal).
 	  
 
-  - __🔴 Prueba 1.5: El test de la caida del servidor o la red__
+  - __🔴 Prueba 1.5: El test de la caída del servidor o la red__
 
     * **Objetivo:** Verificar que la aplicación gestiona correctamente
       las excepciones de red asíncronas y no colapsa (*crash*) si el
-      endpoint dejar de estar disponible.
+      endpoint deja de estar disponible.
 
     * **Procedimiento:**
       1. Asegurarse de que el servidor simulado **está operativo**.
@@ -887,7 +886,7 @@ realizar más pruebas.
 	  
     * **Fallo crítico (Penalización en l10n):** Los números y fechas
       se muestran siempre en el mismo formato. Seguramente porque el
-      alumno usó concatenaciones manuales del tipo dia \+ "/" \+ mes o
+      alumno usó concatenaciones manuales del tipo día \+ "/" \+ mes o
       convirtió los números a texto usando un simple
       Double.toString(velocidad).
 	  
